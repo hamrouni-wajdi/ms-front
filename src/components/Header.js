@@ -36,6 +36,12 @@ export const Header = () => {
                             <span className="ml-1"></span>
                         </Link>
                     </li>
+                    <li class="nav-item">
+                        <Link to="/signup" className="btn-lg nav-link text-white">
+                            <i class="fas fa-user"></i>
+                            <span className="ml-1"> Signup</span>
+                        </Link>
+                    </li>
             </ul>
             );
 
@@ -54,6 +60,11 @@ export const Header = () => {
                             <span className="ml-1">Login</span>
                         </Link>
                     </li>   
+                    <li class="nav-item">
+                        <Link to="/signup" className="btn-lg nav-link text-white">
+                            <span className="ml-1">Signup</span>
+                        </Link>
+                    </li>  
             </ul>
             );
 

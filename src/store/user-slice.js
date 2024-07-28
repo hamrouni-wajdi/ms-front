@@ -17,6 +17,7 @@ const userSlice = createSlice({
       state.user = action.payload;
     },
     userSignup(state, action) {
+      console.log(action.payload)
       state.user = action.payload;
     },
     userProfile(state, action) {

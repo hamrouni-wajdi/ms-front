@@ -31,6 +31,7 @@ import { Login } from "./pages";
 import { Home } from "./pages";
 import { Header } from "./components";
 import { ProductDetails } from "./pages/ProductDetail";
+import { Signup } from "./pages/Signup";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/details/:id" element={<ProductDetails />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
       </BrowserRouter>
     </div>

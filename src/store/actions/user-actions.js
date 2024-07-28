@@ -10,13 +10,14 @@ export const SetAuthToken = async (token) => {
 };
 
 export const onSignup =
-  ({ email, password, phone }) =>
+  ({ email, password, firstname,lastname }) =>
   async (dispatch) => {
     try {
       const response = await PostData("/customner/signup", {
         email,
         password,
-        phone,
+        firstname,
+        lastname
       });
       const { token } = response.data;
       await SetAuthToken(token);
