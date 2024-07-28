@@ -1,7 +1,7 @@
 import api from 'axios';
 
  
-api.defaults.baseURL = "http://localhost:8000/";
+api.defaults.baseURL = "http://localhost:8000";
 
 const setHeader = () => {
     const token = localStorage.getItem('token');
@@ -21,10 +21,13 @@ export const GetData = async(endPoint,options) => {
     
 }
 
-export const PostData = async(endPoint,options) => {
+export const PostData = async(endPoint,data,options) => {
+  console.log("post data");
+  console.log(endPoint)
   try {
     setHeader();
-    const response = await api.post(endPoint, options);
+    const response = await api.post(api.defaults.baseURL + endPoint, data ,options);
+    console.log("response",response)
     return response
   } catch (err) {
       throw err;

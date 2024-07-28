@@ -27,11 +27,12 @@
 import "./App.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Login } from "./pages";
+import { Login, Profile } from "./pages";
 import { Home } from "./pages";
 import { Header } from "./components";
 import { ProductDetails } from "./pages/ProductDetail";
 import { Signup } from "./pages/Signup";
+import { ProductList } from "./pages/ProductList";
 
 function App() {
   return (
@@ -43,6 +44,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/logout" element={<Login />} />
+
         </Routes>
       </BrowserRouter>
     </div>

@@ -4,6 +4,7 @@ import { onSignup, onLogin, onViewProfile } from "../store/actions";
 import { AddressComponent } from "../components/Address-comp";
 import { Profile } from "./Profile";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { BrowserRouter as Router, Route, Switch, Redirect,Navigate  } from 'react-router-dom';
 
 //load Shopping profile
 const Login = () => {
@@ -17,7 +18,7 @@ const Login = () => {
 
   const [isSignup, setSignup] = useState(false);
 
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const Login = () => {
   };
 
   const userLogin = () => {
-    dispatch(onLogin({ email, password }));
+    dispatch(onLogin({ username, password }));
   };
 
   const loginForm = () => {
@@ -48,12 +49,12 @@ const Login = () => {
         <div className="col col-sm-5 col-md-4 col-lg-3 col-xl-2">
           <form>
             <div className="from-group" controlId="formBasicEmail">
-              <label>Email address</label>
+              <label>Username</label>
               <input
                 className="form-control"
-                type="email"
-                placeholder="Enter email"
-                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                placeholder="Enter your username"
+                onChange={(e) => setUsername(e.target.value)}
               />
             </div>
             <div className="from-group" controlId="formBasicPassword">
@@ -73,7 +74,8 @@ const Login = () => {
               >
                 Login
               </button>
-              <button className="btn btn-primary" type="button">
+              <button className="btn btn-primary" type="button" onClick={()=> <Navigate to="/signup" />
+}>
                 Signup
               </button>
             </div>

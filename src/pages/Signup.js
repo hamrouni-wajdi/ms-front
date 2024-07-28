@@ -13,14 +13,20 @@ const Signup = () => {
 
   const { id, token } = user;
 
-  const { address, whishlist, orders } = profile;
+  const { whishlist, orders } = profile;
 
   const [isSignup, setSignup] = useState(false);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstname, setFirstname] = useState("");
-  const [lastname, SetLastname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [username, setUsername] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
+
+
+
 
   useEffect(() => {
     if (token) {
@@ -30,7 +36,8 @@ const Signup = () => {
 
   const userSignup = () => {
     //call Signup
-    dispatch(onSignup({ email, password,firstname, lastname }));
+    console.log({ email, password,firstname, lastname,username,address,phone })
+    dispatch(onSignup({ email, password,firstname, lastname,username,address,phone }));
   };
 
   const userLogin = () => {
@@ -65,7 +72,34 @@ const Signup = () => {
                 className="form-control"
                 type="text"
                 placeholder="Enter your lastname"
-                onChange={(e) => SetLastname(e.target.value)}
+                onChange={(e) => setLastname(e.target.value)}
+              />
+            </div>
+            <div className="from-group" controlId="formBasicEmail">
+              <label>username</label>
+              <input
+                className="form-control"
+                type="string"
+                placeholder="Enter your username"
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+            <div className="from-group" controlId="formBasicEmail">
+              <label>Address</label>
+              <input
+                className="form-control"
+                type="string"
+                placeholder="Enter your address"
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
+            <div className="from-group" controlId="formBasicEmail">
+              <label>Phone</label>
+              <input
+                className="form-control"
+                type="string"
+                placeholder="Enter your phone number"
+                onChange={(e) => setPhone(e.target.value)}
               />
             </div>
             <div className="from-group" controlId="formBasicEmail">
@@ -94,7 +128,7 @@ const Signup = () => {
               >
                 Login
               </button>
-              <button className="btn btn-primary" type="button">
+              <button className="btn btn-primary" type="button"  onClick={() => userSignup()}>
                 Signup
               </button>
             </div>

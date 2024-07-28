@@ -23,10 +23,10 @@ const Profile = () => {
   const dispatch = useAppDispatch();
 
   const [street, setStreet] = useState();
-  const [city, setCity] = useState();
+  const [city, setCity] = useState("Paris");
   const [state, setState] = useState();
   const [postalCode, setPostalCode] = useState();
-  const [country, setCountry] = useState();
+  const [country, setCountry] = useState("France");
 
   const { id, token } = user;
 
